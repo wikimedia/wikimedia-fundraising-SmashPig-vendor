@@ -1,31 +1,32 @@
 [
     {
         "name": "symfony/event-dispatcher",
-        "version": "v2.3.3",
-        "version_normalized": "2.3.3.0",
+        "version": "v2.3.28",
+        "version_normalized": "2.3.28.0",
         "target-dir": "Symfony/Component/EventDispatcher",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/EventDispatcher.git",
-            "reference": "v2.3.3"
+            "reference": "a0d920f6a2c3dcc6ad296d09a879689127cde251"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.3.3",
-            "reference": "v2.3.3",
+            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/a0d920f6a2c3dcc6ad296d09a879689127cde251",
+            "reference": "a0d920f6a2c3dcc6ad296d09a879689127cde251",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
         "require-dev": {
-            "symfony/dependency-injection": "~2.0"
+            "symfony/dependency-injection": "~2.0,>=2.0.5",
+            "symfony/phpunit-bridge": "~2.7"
         },
         "suggest": {
             "symfony/dependency-injection": "",
             "symfony/http-kernel": ""
         },
-        "time": "2013-07-21 12:12:18",
+        "time": "2015-05-01 14:06:45",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -49,32 +50,35 @@
             },
             {
                 "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
+                "homepage": "https://symfony.com/contributors"
             }
         ],
         "description": "Symfony EventDispatcher Component",
-        "homepage": "http://symfony.com"
+        "homepage": "https://symfony.com"
     },
     {
         "name": "symfony/http-foundation",
-        "version": "v2.3.3",
-        "version_normalized": "2.3.3.0",
+        "version": "v2.3.28",
+        "version_normalized": "2.3.28.0",
         "target-dir": "Symfony/Component/HttpFoundation",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/HttpFoundation.git",
-            "reference": "v2.3.3"
+            "reference": "7f2b9fa807e22bb90efce353199c425bd6f6b703"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/v2.3.3",
-            "reference": "v2.3.3",
+            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/7f2b9fa807e22bb90efce353199c425bd6f6b703",
+            "reference": "7f2b9fa807e22bb90efce353199c425bd6f6b703",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2013-08-07 14:02:06",
+        "require-dev": {
+            "symfony/phpunit-bridge": "~2.7"
+        },
+        "time": "2015-05-01 14:06:45",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -101,10 +105,10 @@
             },
             {
                 "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
+                "homepage": "https://symfony.com/contributors"
             }
         ],
         "description": "Symfony HttpFoundation Component",
-        "homepage": "http://symfony.com"
+        "homepage": "https://symfony.com"
     }
 ]
