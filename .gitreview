@@ -1,7 +1,7 @@
 [gerrit]
 host=gerrit.wikimedia.org
 port=29418
-project=wikimedia/fundraising/SmashPig/vendor
+project=wikimedia/fundraising/SmashPig/vendor.git
 defaultbranch=master
 defaultrebase=0
 
