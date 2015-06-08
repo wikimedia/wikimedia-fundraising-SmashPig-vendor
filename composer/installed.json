@@ -1,18 +1,18 @@
 [
     {
         "name": "symfony/event-dispatcher",
-        "version": "v2.3.28",
-        "version_normalized": "2.3.28.0",
+        "version": "v2.3.30",
+        "version_normalized": "2.3.30.0",
         "target-dir": "Symfony/Component/EventDispatcher",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/EventDispatcher.git",
-            "reference": "a0d920f6a2c3dcc6ad296d09a879689127cde251"
+            "reference": "af8fba40bdab97fc666173a8c2087e02445c231c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/a0d920f6a2c3dcc6ad296d09a879689127cde251",
-            "reference": "a0d920f6a2c3dcc6ad296d09a879689127cde251",
+            "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/af8fba40bdab97fc666173a8c2087e02445c231c",
+            "reference": "af8fba40bdab97fc666173a8c2087e02445c231c",
             "shasum": ""
         },
         "require": {
@@ -26,7 +26,7 @@
             "symfony/dependency-injection": "",
             "symfony/http-kernel": ""
         },
-        "time": "2015-05-01 14:06:45",
+        "time": "2015-05-15 13:28:34",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -58,18 +58,18 @@
     },
     {
         "name": "symfony/http-foundation",
-        "version": "v2.3.28",
-        "version_normalized": "2.3.28.0",
+        "version": "v2.3.30",
+        "version_normalized": "2.3.30.0",
         "target-dir": "Symfony/Component/HttpFoundation",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/HttpFoundation.git",
-            "reference": "7f2b9fa807e22bb90efce353199c425bd6f6b703"
+            "reference": "a2223f6d2202af50ac2029bc9e2fa770de84fa3f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/7f2b9fa807e22bb90efce353199c425bd6f6b703",
-            "reference": "7f2b9fa807e22bb90efce353199c425bd6f6b703",
+            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/a2223f6d2202af50ac2029bc9e2fa770de84fa3f",
+            "reference": "a2223f6d2202af50ac2029bc9e2fa770de84fa3f",
             "shasum": ""
         },
         "require": {
@@ -78,7 +78,7 @@
         "require-dev": {
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-05-01 14:06:45",
+        "time": "2015-05-20 08:53:09",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -110,5 +110,56 @@
         ],
         "description": "Symfony HttpFoundation Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "fusesource/stomp-php",
+        "version": "2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dejanb/stomp-php.git",
+            "reference": "4ac51c0abee05078e198faf13f48c056a72f8f8c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dejanb/stomp-php/zipball/4ac51c0abee05078e198faf13f48c056a72f8f8c",
+            "reference": "4ac51c0abee05078e198faf13f48c056a72f8f8c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-02-23 17:34:44",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "FuseSource": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Dejan Bosnanac",
+                "email": "dejan@nighttale.net",
+                "homepage": "http://www.nighttale.net"
+            },
+            {
+                "name": "Sören Rohweder",
+                "email": "s.rohweder@blage.net",
+                "homepage": "http://www.monofone.de"
+            }
+        ],
+        "description": "stomp support for PHP",
+        "homepage": "http://github.com/dejanb/stomp-php",
+        "keywords": [
+            "activeMQ",
+            "jms",
+            "messaging",
+            "stomp"
+        ]
     }
 ]
