@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'SmashPig\\' => array($baseDir . '/'),
+    'PayWithAmazon\\' => array($vendorDir . '/amzn/login-and-pay-with-amazon-sdk-php/PayWithAmazon'),
 );
