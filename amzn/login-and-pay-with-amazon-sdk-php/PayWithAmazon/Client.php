@@ -9,7 +9,8 @@ namespace PayWithAmazon;
 
 require_once 'ResponseParser.php';
 require_once 'HttpCurl.php';
-require_once 'Interface.php';
+require_once 'ClientInterface.php';
+require_once 'Regions.php';
 
 class Client implements ClientInterface
 {
@@ -45,27 +46,9 @@ class Client implements ClientInterface
 
     // Final URL to where the API parameters POST done, based off the config['region'] and respective $mwsServiceUrls
     private $mwsServiceUrl = null;
-
-    private $mwsServiceUrls = array('eu' => 'mws-eu.amazonservices.com',
-				    'na' => 'mws.amazonservices.com',
-				    'jp' => 'mws.amazonservices.jp');
-
-    // Production profile end points to get the user information
-    private $liveProfileEndpoint = array('uk' => 'https://api.amazon.co.uk',
-					 'us' => 'https://api.amazon.com',
-					 'de' => 'https://api.amazon.de',
-					 'jp' => 'https://api.amazon.co.jp');
-
-    // Sandbox profile end points to get the user information
-    private $sandboxProfileEndpoint = array('uk' => 'https://api.sandbox.amazon.co.uk',
-					    'us' => 'https://api.sandbox.amazon.com',
-					    'de' => 'https://api.sandbox.amazon.de',
-					    'jp' => 'https://api.sandbox.amazon.co.jp');
-
-    private $regionMappings = array('de' => 'eu',
-				    'uk' => 'eu',
-				    'us' => 'na',
-				    'jp' => 'jp');
+    private $mwsServiceUrls;
+    private $profileEndpointUrls;
+    private $regionMappings;
 
     // Boolean variable to check if the API call was a success
     public $success = false;
@@ -77,6 +60,7 @@ class Client implements ClientInterface
 
     public function __construct($config = null)
     {
+	$this->getRegionUrls();
         if (!is_null($config)) {
 
             if (is_array($config)) {
@@ -93,6 +77,16 @@ class Client implements ClientInterface
         } else {
 	    throw new \Exception('$config cannot be null.');
 	}
+    }
+    
+    /* Get the Region specific properties from the Regions class.*/
+    
+    private function getRegionUrls()
+    {
+	$regionObject = new Regions();
+	$this->mwsServiceUrls = $regionObject->mwsServiceUrls;
+	$this->regionMappings = $regionObject->regionMappings;
+	$this->profileEndpointUrls = $regionObject->profileEndpointUrls;
     }
 
     /* checkIfFileExists -  check if the JSON file exists in the path provided */
@@ -125,6 +119,7 @@ class Client implements ClientInterface
     private function checkConfigKeys($config)
     {
         $config = array_change_key_case($config, CASE_LOWER);
+	$config = $this->trimArray($config);
 
         foreach ($config as $key => $value) {
             if (array_key_exists($key, $this->config)) {
@@ -200,17 +195,17 @@ class Client implements ClientInterface
 
     public function setProxy($proxy)
     {
-        if (!empty($proxy['proxy_user_host']))
-	    $this->config['proxy_user_host'] = $proxy['proxy_user_host'];
+	if (!empty($proxy['proxy_user_host']))
+	    $this->config['proxy_host'] = $proxy['proxy_user_host'];
 
         if (!empty($proxy['proxy_user_port']))
-            $this->config['proxy_user_port'] = $proxy['proxy_user_port'];
+            $this->config['proxy_port'] = $proxy['proxy_user_port'];
 
         if (!empty($proxy['proxy_user_name']))
-            $this->config['proxy_user_name'] = $proxy['proxy_user_name'];
+            $this->config['proxy_username'] = $proxy['proxy_user_name'];
 
         if (!empty($proxy['proxy_user_password']))
-            $this->config['proxy_user_password'] = $proxy['proxy_user_password'];
+            $this->config['proxy_password'] = $proxy['proxy_user_password'];
     }
 
     /* Setter for $mwsServiceUrl
@@ -243,6 +238,20 @@ class Client implements ClientInterface
     {
 	return trim($this->parameters);
     }
+    
+    /* Trim the input Array key values */
+    
+    private function trimArray($array)
+    {
+	foreach ($array as $key => $value)
+	{
+	    if(!is_array($value) && $key!=='proxy_password')
+	    {
+		$array[$key] = trim($value);
+	    }
+	}
+	return $array;
+    }
 
     /* GetUserInfo convenience function - Returns user's profile information from Amazon using the access token returned by the Button widget.
      *
@@ -263,7 +272,7 @@ class Client implements ClientInterface
         $accessToken = urldecode($accessToken);
         $url 	     = $this->profileEndpoint . '/auth/o2/tokeninfo?access_token=' . urlEncode($accessToken);
 
-        $httpCurlRequest = new HttpCurl();
+        $httpCurlRequest = new HttpCurl($this->config);
 
         $response = $httpCurlRequest->httpGet($url);
         $data 	  = json_decode($response);
@@ -275,7 +284,7 @@ class Client implements ClientInterface
 
         // Exchange the access token for user profile
         $url             = $this->profileEndpoint . '/user/profile';
-        $httpCurlRequest = new HttpCurl();
+        $httpCurlRequest = new HttpCurl($this->config);
 
         $httpCurlRequest->setAccessToken($accessToken);
         $httpCurlRequest->setHttpHeader(true);
@@ -286,18 +295,17 @@ class Client implements ClientInterface
     }
 
     /* setParametersAndPost - sets the parameters array with non empty values from the requestParameters array sent to API calls.
-     * If Provider Credit or Provider Credit Reversal details are present
-     * setProviderCreditDetails or setProviderCreditReversalDetails is called to set the values.
+     * If Provider Credit Details is present, values are set by setProviderCreditDetails
+     * If Provider Credit Reversal Details is present, values are set by setProviderCreditDetails
      */
 
-    private function setParametersAndPost($parameters, $fieldMappings, $requestParameters)
+    protected function setParametersAndPost($parameters, $fieldMappings, $requestParameters)
     {
 	/* For loop to take all the non empty parameters in the $requestParameters and add it into the $parameters array,
 	 * if the keys are matched from $requestParameters array with the $fieldMappings array
 	 */
         foreach ($requestParameters as $param => $value) {
 
-	    // Provider Credit is an array of arrays for example, if the input $value was an array don't trim it as trim needs parameter to be string
 	    if(!is_array($value)) {
 		$value = trim($value);
 	    }
@@ -705,7 +713,7 @@ class Client implements ClientInterface
      * @param requestParameters['amazon_authorization_id'] - [String]
      * @param requestParameters['capture_amount'] - [String]
      * @param requestParameters['currency_code'] - [String]
-     * @param requestParameters[capture_reference_id'] - [String]
+     * @param requestParameters['capture_reference_id'] - [String]
      * @optional requestParameters['provider_credit_details'] - [array (array())]
      * @optional requestParameters['seller_capture_note'] - [String]
      * @optional requestParameters['soft_descriptor'] - [String]
@@ -1010,8 +1018,8 @@ class Client implements ClientInterface
      *
      * @param requestParameters['merchant_id'] - [String]
      * @param requestParameters['amazon_billing_agreement_id'] - [String]
-     * @param AuthorizationReferenceId [String]
-     * @param AuthorizationAmount [String]
+     * @param requestParameters['authorization_reference_id'] [String]
+     * @param requestParameters['authorization_amount'] [String]
      * @param requestParameters['currency_code'] - [String]
      * @optional requestParameters['seller_authorization_note'] [String]
      * @optional requestParameters['transaction_timeout'] - Defaults to 1440 minutes
@@ -1090,7 +1098,13 @@ class Client implements ClientInterface
      * 3. Authorize (with Capture) / AuthorizeOnBillingAgreeemnt (with Capture)
      *
      * @param requestParameters['merchant_id'] - [String]
+     *
      * @param requestParameters['amazon_reference_id'] - [String] : Order Reference ID /Billing Agreement ID
+     * If requestParameters['amazon_reference_id'] is empty then the following is required,
+     * @param requestParameters['amazon_order_reference_id'] - [String] : Order Reference ID
+     * or,
+     * @param requestParameters['amazon_billing_agreement_id'] - [String] : Billing Agreement ID
+     * 
      * @param $requestParameters['charge_amount'] - [String] : Amount value to be captured
      * @param requestParameters['currency_code'] - [String] : Currency Code for the Amount
      * @param requestParameters['authorization_reference_id'] - [String]- Any unique string that needs to be passed
@@ -1103,12 +1117,20 @@ class Client implements ClientInterface
     public function charge($requestParameters = array()) {
 
 	$requestParameters = array_change_key_case($requestParameters, CASE_LOWER);
+	$requestParameters= $this->trimArray($requestParameters);
 
 	$setParameters = $authorizeParameters = $confirmParameters = $requestParameters;
 
         $chargeType = '';
-
-        if (!empty($requestParameters['amazon_reference_id'])) {
+	
+	if (!empty($requestParameters['amazon_order_reference_id']))
+	{
+	    $chargeType = 'OrderReference';
+	    
+	} elseif(!empty($requestParameters['amazon_billing_agreement_id'])) {
+	    $chargeType = 'BillingAgreement';
+	    
+	} elseif (!empty($requestParameters['amazon_reference_id'])) {
             switch (substr(strtoupper($requestParameters['amazon_reference_id']), 0, 1)) {
                 case 'P':
                 case 'S':
@@ -1128,7 +1150,7 @@ class Client implements ClientInterface
                     throw new \Exception('Invalid Amazon Reference ID');
             }
         } else {
-            throw new \Exception('key amazon_reference_id is null and is a required parameter');
+            throw new \Exception('key amazon_order_reference_id or amazon_billing_agreement_id is null and is a required parameter');
         }
 
 	// Set the other parameters if the values are present
@@ -1143,7 +1165,7 @@ class Client implements ClientInterface
         $setParameters['seller_billing_agreement_id'] = !empty($requestParameters['charge_order_id']) ? $requestParameters['charge_order_id'] : '';
         $authorizeParameters['seller_order_id'] = !empty($requestParameters['charge_order_id']) ? $requestParameters['charge_order_id'] : '';
 
-        $authorizeParameters['capture_now'] = 'true';
+        $authorizeParameters['capture_now'] = !empty($requestParameters['capture_now']) ? $requestParameters['capture_now'] : false;
 
 	$response = $this->makeChargeCalls($chargeType, $setParameters, $confirmParameters, $authorizeParameters);
 	return $response;
@@ -1154,36 +1176,71 @@ class Client implements ClientInterface
     private function makeChargeCalls($chargeType, $setParameters, $confirmParameters, $authorizeParameters)
     {
 	switch ($chargeType) {
-            case 'OrderReference':
-                $response = $this->setOrderReferenceDetails($setParameters);
-                if ($this->success) {
+            
+	    case 'OrderReference':
+		
+		// Get the Order Reference details and feed the response object to the ResponseParser
+                $responseObj = $this->getOrderReferenceDetails($setParameters);
+		
+		// Call the function getOrderReferenceDetailsStatus in ResponseParser.php providing it the XML response
+                // $oroStatus is an array containing the State of the Order Reference ID
+                $oroStatus = $responseObj->getOrderReferenceDetailsStatus($responseObj->toXml());
+		
+		if ($oroStatus['State'] === 'Draft') {
+		    $response = $this->setOrderReferenceDetails($setParameters);
+		    if ($this->success) {
                     $this->confirmOrderReference($confirmParameters);
-                }
-                if ($this->success) {
+		    }
+		}
+		
+                $responseObj = $this->getOrderReferenceDetails($setParameters);
+		
+		// Check the Order Reference Status again before making the Authorization.
+                $oroStatus = $responseObj->getOrderReferenceDetailsStatus($responseObj->toXml());
+		
+		if ($oroStatus['State'] === 'Open') {
+		    if ($this->success) {
                     $response = $this->Authorize($authorizeParameters);
-                }
-                return $response;
-            case 'BillingAgreement':
-                // Get the Billing Agreement details and feed the response object to the ResponseParser
-                $responseObj = $this->getBillingAgreementDetails($setParameters);
-                // Call the function GetBillingAgreementDetailsStatus in ResponseParser.php providing it the XML response
-                // $baStatus is an aray containing the State of the Billing Agreement
+		    }
+		}
+		if ($oroStatus['State'] != 'Open' && $oroStatus['State'] != 'Draft') {
+		    throw new \Exception('The Order Reference is in the ' . $oroStatus['State'] . " State. It should be in the Draft or Open State");
+		}
+                
+		return $response;
+            
+	    case 'BillingAgreement':
+                
+		// Get the Billing Agreement details and feed the response object to the ResponseParser
+                
+		$responseObj = $this->getBillingAgreementDetails($setParameters);
+                
+		// Call the function getBillingAgreementDetailsStatus in ResponseParser.php providing it the XML response
+                // $baStatus is an array containing the State of the Billing Agreement
                 $baStatus = $responseObj->getBillingAgreementDetailsStatus($responseObj->toXml());
-                if ($baStatus['State'] != 'Open') {
-                    $response = $this->SetBillingAgreementDetails($setParameters);
+                
+		if ($baStatus['State'] === 'Draft') {
+                    $response = $this->setBillingAgreementDetails($setParameters);
                     if ($this->success) {
-                        $response = $this->ConfirmBillingAgreement($confirmParameters);
+                        $response = $this->confirmBillingAgreement($confirmParameters);
                     }
                 }
-                // Check the Billing Agreement status again before making the Authorization.
+                
+		// Check the Billing Agreement status again before making the Authorization.
                 $responseObj = $this->getBillingAgreementDetails($setParameters);
-                $baStatus = $responseObj->GetBillingAgreementDetailsStatus($responseObj->toXml());
+                $baStatus = $responseObj->getBillingAgreementDetailsStatus($responseObj->toXml());
+		
                 if ($this->success && $baStatus['State'] === 'Open') {
-                    $response = $this->AuthorizeOnBillingAgreement($authorizeParameters);
+                    $response = $this->authorizeOnBillingAgreement($authorizeParameters);
                 }
+		
+		if($baStatus['State'] != 'Open' && $baStatus['State'] != 'Draft') {
+		    throw new \Exception('The Billing Agreement is in the ' . $baStatus['State'] . " State. It should be in the Draft or Open State");
+		}
+		
             return $response;
-        }
-    }
+	    }
+	}
 
     /* GetProviderCreditDetails API Call - Get the details of the Provider Credit.
      *
@@ -1492,14 +1549,14 @@ class Client implements ClientInterface
 
     private function profileEndpointUrl()
     {
+	$profileEnvt = strtolower($this->config['sandbox']) ? "api.sandbox" : "api";
+	
         if (!empty($this->config['region'])) {
             $region = strtolower($this->config['region']);
 
-	    if (array_key_exists($region, $this->sandboxProfileEndpoint) && $this->config['sandbox'] ) {
-                $this->profileEndpoint = $this->sandboxProfileEndpoint[$region];
-	    } elseif (array_key_exists($region, $this->liveProfileEndpoint)) {
-		$this->profileEndpoint = $this->liveProfileEndpoint[$region];
-	    } else{
+	    if (array_key_exists($region, $this->regionMappings) ) {
+                $this->profileEndpoint = 'https://' . $profileEnvt . '.' . $this->profileEndpointUrls[$region];
+	    }else{
 		throw new \Exception($region . ' is not a valid region');
 	    }
 	} else {
