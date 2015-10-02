@@ -16,7 +16,9 @@ abstract class BaseClient
     const MWS_CLIENT_VERSION = '1.0.0';
     const MAX_ERROR_RETRY = 3;
 
-	protected $serviceVersion;
+    // Override in concrete classes with API's service version
+    protected $serviceVersion;
+
     // Construct User agent string based off of the application_name, application_version, PHP platform
     protected $userAgent = null;
     protected $parameters = null;
@@ -41,12 +43,20 @@ abstract class BaseClient
 			    );
 
     protected $modePath = null;
+    // Number of microseconds to wait when initially throttled.  If throttled
+    // repeatedly, wait time will be multiplied by a power of four.
+    // Override this for services that require longer wait times.
+    protected $basePause = 100000;
 
     // Final URL to where the API parameters POST done, based off the config['region'] and respective $mwsServiceUrls
     protected $mwsServiceUrl = null;
     protected $mwsServiceUrls;
     protected $profileEndpointUrls;
     protected $regionMappings;
+
+    // Override in derived types to support structured list types
+    protected $listPrefixes = array();
+    protected $listMappings = array();
 
     // Boolean variable to check if the API call was a success
     public $success = false;
@@ -58,7 +68,6 @@ abstract class BaseClient
 
     public function __construct($config = null)
     {
-		$this->setServiceVersion();
 	$this->getRegionUrls();
         if (!is_null($config)) {
 
@@ -271,13 +280,7 @@ abstract class BaseClient
             if (array_key_exists($param, $fieldMappings) && $value!='') {
 
 		if(is_array($value)) {
-		    // If the parameter is a provider_credit_details or provider_credit_reversal_details, call the respective functions to set the values
-		    if($param === 'provider_credit_details') {
-			$parameters = $this->setProviderCreditDetails($parameters,$value);
-		    } elseif ($param === 'provider_credit_reversal_details') {
-			$parameters = $this->setProviderCreditReversalDetails($parameters,$value);
-		    }
-
+			$parameters = $this->setStructucturedListParameters($parameters, $fieldMappings[$param], $value);
 		} else{
 		    // For variables that are boolean values, strtolower them
 		    if($this->checkIfBool($value))
@@ -294,6 +297,42 @@ abstract class BaseClient
 	$responseObject = $this->calculateSignatureAndPost($parameters, $parseResponse);
 
 	return $responseObject;
+    }
+
+    protected function setStructucturedListParameters($parameters, $name, $list) {
+        $listIndex = 0;
+        $listPrefix = $this->listPrefixes[$name];
+
+        if (isset($this->listMappings[$name])) {
+            $fieldMappings = $this->listMappings[$name];
+        }
+
+        foreach ($list as $key => $value)
+        {
+            $listIndex = $listIndex + 1;
+
+            if ( is_array( $value ) ) {
+                $value = array_change_key_case($value, CASE_LOWER);
+                foreach ($value as $param => $val)
+                {
+                    if (array_key_exists($param, $fieldMappings) && trim($val)!='') {
+                        $parameters["{$listPrefix}.{$listIndex}.{$fieldMappings[$param]}"] = $val;
+                    }
+                }
+                // Special case: if currency code is mapped but not provided,
+                // take it from the config array
+                if (isset($fieldMappings['currency_code'])) {
+                    $currencyKey = "{$listPrefix}.{$listIndex}.{$fieldMappings['currency_code']}";
+                    if(empty($parameters[$currencyKey])) {
+                        $parameters[$currencyKey] = strtoupper($this->config['currency_code']);
+                    }
+                }
+            } else {
+                $parameters["{$listPrefix}.{$listIndex}"] = $value;
+            }
+        }
+
+        return $parameters;
     }
 
     /* checkIfBool - checks if the input is a boolean */
@@ -546,7 +585,7 @@ abstract class BaseClient
     private function pauseOnRetry($retries, $status)
     {
         if ($retries <= self::MAX_ERROR_RETRY) {
-            $delay = (int) (pow(4, $retries) * 100000);
+            $delay = (int) (pow(4, $retries) * $this->basePause);
             usleep($delay);
         } else {
             throw new \Exception('Error Code: '. $status.PHP_EOL.'Maximum number of retry attempts - '. $retries .' reached');
@@ -574,7 +613,6 @@ abstract class BaseClient
     }
 
 	abstract protected function setModePath();
-	abstract protected function setServiceVersion();
 
     /* Create the User Agent Header sent with the POST request */
 
