@@ -26,7 +26,7 @@ class MockResponseParser implements ResponseInterface {
 		$statusPart = $status ? '_' . $status : '';
 		$filePath = "$responseDirectory/{$operation}{$statusPart}.json";
 		$json = file_get_contents( $filePath );
-		return new MockAmazonResponse( json_decode( $json, true ) );
+		return new MockResponseParser( json_decode( $json, true ) );
 	}
 
 	public function getBillingAgreementDetailsStatus( $response ) {

@@ -20,7 +20,7 @@ abstract class MockBaseClient {
 		$this->responseDirectory = $config['response-directory'];
 	}
 
-	protected function __call( $functionName, $arguments ) {
+	protected function fakeCall( $functionName, $arguments ) {
 		$this->calls[$functionName][] = $arguments;
 		$status = null;
 		$returnIndex = count( $this->calls[$functionName] ) - 1;
@@ -30,7 +30,7 @@ abstract class MockBaseClient {
 		if ( isset( $this->exceptions[$functionName] ) && isset( $this->exceptions[$functionName][$returnIndex] ) ) {
 			throw $this->exceptions[$functionName][$returnIndex];
 		}
-		return MockAmazonResponse::create( $this->responseDirectory, $functionName, $status );
+		return MockResponseParser::create( $this->responseDirectory, $functionName, $status );
 	}
 
 	public function __get( $name ) {
