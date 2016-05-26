@@ -218,72 +218,6 @@
         ]
     },
     {
-        "name": "coderkungfu/php-queue",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://gerrit.wikimedia.org/r/p/wikimedia/fundraising/php-queue.git",
-            "reference": "e7b45a7565e5b51c1561fc0802e2f888351b6367"
-        },
-        "require": {
-            "clio/clio": "@stable",
-            "monolog/monolog": "~1.3",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "jakub-onderka/php-parallel-lint": "0.9",
-            "phpunit/phpunit": "4.4.*"
-        },
-        "suggest": {
-            "Respect/Rest": "For a REST server to post job data",
-            "amazonwebservices/aws-sdk-for-php": "For AWS SQS backend support (legacy version)",
-            "aws/aws-sdk-php": "For AWS SQS backend support",
-            "clio/clio": "Support for daemonizing PHP CLI runner",
-            "ext-memcache": "*",
-            "fusesource/stomp-php": "For the STOMP backend",
-            "iron-io/iron_mq": "For IronMQ backend support",
-            "microsoft/windowsazure": "For Windows Azure Service Bus backend support",
-            "mrpoundsign/pheanstalk-5.3": "For Beanstalkd backend support",
-            "pecl-mongodb": "For MongoDB backend support",
-            "predis/predis": "For Redis backend support"
-        },
-        "time": "2016-05-06 20:59:33",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "PHPQueue": "src/"
-            }
-        },
-        "scripts": {
-            "test": [
-                "parallel-lint . --exclude vendor",
-                "phpunit"
-            ]
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Michael Cheng",
-                "email": "mcheng.work@gmail.com"
-            }
-        ],
-        "description": "A unified front-end for different queuing backends. Includes a REST server, CLI interface and daemon runners.",
-        "homepage": "http://github.com/CoderKungfu/php-queue",
-        "keywords": [
-            "queue",
-            "transaction"
-        ]
-    },
-    {
         "name": "fusesource/stomp-php",
         "version": "2.1.1",
         "version_normalized": "2.1.1.0",
@@ -601,5 +535,71 @@
         ],
         "description": "Symfony Yaml Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "coderkungfu/php-queue",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://gerrit.wikimedia.org/r/p/wikimedia/fundraising/php-queue.git",
+            "reference": "e7b45a7565e5b51c1561fc0802e2f888351b6367"
+        },
+        "require": {
+            "clio/clio": "@stable",
+            "monolog/monolog": "~1.3",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "jakub-onderka/php-parallel-lint": "0.9",
+            "phpunit/phpunit": "4.4.*"
+        },
+        "suggest": {
+            "Respect/Rest": "For a REST server to post job data",
+            "amazonwebservices/aws-sdk-for-php": "For AWS SQS backend support (legacy version)",
+            "aws/aws-sdk-php": "For AWS SQS backend support",
+            "clio/clio": "Support for daemonizing PHP CLI runner",
+            "ext-memcache": "*",
+            "fusesource/stomp-php": "For the STOMP backend",
+            "iron-io/iron_mq": "For IronMQ backend support",
+            "microsoft/windowsazure": "For Windows Azure Service Bus backend support",
+            "mrpoundsign/pheanstalk-5.3": "For Beanstalkd backend support",
+            "pecl-mongodb": "For MongoDB backend support",
+            "predis/predis": "For Redis backend support"
+        },
+        "time": "2016-05-06 21:06:39",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "PHPQueue": "src/"
+            }
+        },
+        "scripts": {
+            "test": [
+                "parallel-lint . --exclude vendor",
+                "phpunit"
+            ]
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Cheng",
+                "email": "mcheng.work@gmail.com"
+            }
+        ],
+        "description": "A unified front-end for different queuing backends. Includes a REST server, CLI interface and daemon runners.",
+        "homepage": "http://github.com/CoderKungfu/php-queue",
+        "keywords": [
+            "queue",
+            "transaction"
+        ]
     }
 ]
