@@ -8,6 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'PHPQueue' => array($vendorDir . '/coderkungfu/php-queue/src'),
-    'FuseSource' => array($vendorDir . '/fusesource/stomp-php/src'),
     'Clio' => array($vendorDir . '/clio/clio/src'),
 );

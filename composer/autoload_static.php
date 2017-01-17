@@ -90,13 +90,6 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
                 0 => __DIR__ . '/..' . '/coderkungfu/php-queue/src',
             ),
         ),
-        'F' => 
-        array (
-            'FuseSource' => 
-            array (
-                0 => __DIR__ . '/..' . '/fusesource/stomp-php/src',
-            ),
-        ),
         'C' => 
         array (
             'Clio' => 
