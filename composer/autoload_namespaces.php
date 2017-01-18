@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'PHPQueue' => array($vendorDir . '/coderkungfu/php-queue/src'),
     'Clio' => array($vendorDir . '/clio/clio/src'),
 );
