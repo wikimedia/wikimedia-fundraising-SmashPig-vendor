@@ -27,6 +27,7 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Cache\\' => 10,
             'Predis\\' => 7,
             'PayWithAmazon\\' => 14,
         ),
@@ -68,6 +69,10 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'Predis\\' => 
         array (

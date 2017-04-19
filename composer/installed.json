@@ -185,8 +185,14 @@
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://gerrit.wikimedia.org/r/p/wikimedia/fundraising/php-queue.git",
-            "reference": "d56c5bd69dad595f2e00a3e10c851736b1feb57b"
+            "url": "https://github.com/CoderKungfu/php-queue.git",
+            "reference": "dd8412f105632d31cdd77933ec40a08640752c99"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/CoderKungfu/php-queue/zipball/dd8412f105632d31cdd77933ec40a08640752c99",
+            "reference": "dd8412f105632d31cdd77933ec40a08640752c99",
+            "shasum": ""
         },
         "require": {
             "clio/clio": "0.1.*",
@@ -194,15 +200,19 @@
             "php": ">=5.3.0"
         },
         "require-dev": {
-            "jakub-onderka/php-parallel-lint": "0.9",
-            "phpunit/phpunit": "4.4.*"
+            "amazonwebservices/aws-sdk-for-php": "dev-master",
+            "aws/aws-sdk-php": "dev-master",
+            "ext-memcache": "*",
+            "iron-io/iron_mq": "dev-master",
+            "microsoft/windowsazure": "dev-master",
+            "mrpoundsign/pheanstalk-5.3": "dev-master",
+            "predis/predis": "1.*"
         },
         "suggest": {
             "Respect/Rest": "For a REST server to post job data",
             "amazonwebservices/aws-sdk-for-php": "For AWS SQS backend support (legacy version)",
             "aws/aws-sdk-php": "For AWS SQS backend support",
             "clio/clio": "Support for daemonizing PHP CLI runner",
-            "ext-memcache": "*",
             "fusesource/stomp-php": "For the STOMP backend",
             "iron-io/iron_mq": "For IronMQ backend support",
             "microsoft/windowsazure": "For Windows Azure Service Bus backend support",
@@ -210,7 +220,7 @@
             "pecl-mongodb": "For MongoDB backend support",
             "predis/predis": "For Redis backend support"
         },
-        "time": "2017-01-04 21:01:15",
+        "time": "2017-04-17 14:11:55",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -223,12 +233,7 @@
                 "PHPQueue": "src/"
             }
         },
-        "scripts": {
-            "test": [
-                "parallel-lint . --exclude vendor",
-                "phpunit"
-            ]
-        },
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -784,5 +789,53 @@
         ],
         "description": "Symfony Yaml Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "psr/cache",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/cache.git",
+            "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+            "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06 20:24:11",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for caching libraries",
+        "keywords": [
+            "cache",
+            "psr",
+            "psr-6"
+        ]
     }
 ]
