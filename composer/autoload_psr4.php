@@ -18,4 +18,5 @@ return array(
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'PayWithAmazon\\' => array($vendorDir . '/amzn/login-and-pay-with-amazon-sdk-php/PayWithAmazon'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'GetOptionKit\\' => array($vendorDir . '/corneltek/getoptionkit/src'),
 );

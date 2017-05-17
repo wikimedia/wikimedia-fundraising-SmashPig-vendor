@@ -35,6 +35,10 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
         array (
             'Monolog\\' => 8,
         ),
+        'G' => 
+        array (
+            'GetOptionKit\\' => 13,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -85,6 +89,10 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'GetOptionKit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/corneltek/getoptionkit/src',
         ),
     );
 
