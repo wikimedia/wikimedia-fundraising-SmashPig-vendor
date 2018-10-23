@@ -6,14 +6,14 @@
         "source": {
             "type": "git",
             "url": "https://github.com/ejegg/login-and-pay-with-amazon-sdk-php",
-            "reference": "e3f8d1082556104526999740beaf55b481aaf323"
+            "reference": "655f2762b4dd2719488945d69f98282cad78f3e7"
         },
         "require": {
             "ext-curl": "*",
             "php": ">=5.3.0",
             "psr/log": "^1.0"
         },
-        "time": "2018-02-07T02:51:30+00:00",
+        "time": "2018-10-23T16:42:23+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
