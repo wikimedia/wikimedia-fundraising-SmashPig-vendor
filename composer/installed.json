@@ -1,19 +1,19 @@
 [
     {
         "name": "amzn/login-and-pay-with-amazon-sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "2.5.0",
+        "version_normalized": "2.5.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/ejegg/login-and-pay-with-amazon-sdk-php",
-            "reference": "6cf0941c87097d737ba978b30adabf2ff479e5f9"
+            "reference": "0c923fe9926621bb8a39a22cecd1d2f33c75de30"
         },
         "require": {
             "ext-curl": "*",
             "php": ">=5.3.0",
             "psr/log": "^1.0"
         },
-        "time": "2018-10-23T17:07:29+00:00",
+        "time": "2019-09-19T21:51:50+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -325,17 +325,17 @@
     },
     {
         "name": "phpmailer/phpmailer",
-        "version": "v5.2.27",
-        "version_normalized": "5.2.27.0",
+        "version": "v5.2.28",
+        "version_normalized": "5.2.28.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "dde1db116511aa4956389d75546c5be4c2beb2a6"
+            "reference": "acba50393dd03da69a50226c139722af8b153b11"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/dde1db116511aa4956389d75546c5be4c2beb2a6",
-            "reference": "dde1db116511aa4956389d75546c5be4c2beb2a6",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/acba50393dd03da69a50226c139722af8b153b11",
+            "reference": "acba50393dd03da69a50226c139722af8b153b11",
             "shasum": ""
         },
         "require": {
@@ -365,7 +365,7 @@
         "suggest": {
             "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
         },
-        "time": "2018-11-15T22:32:31+00:00",
+        "time": "2020-03-19T14:29:37+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -385,12 +385,12 @@
         ],
         "authors": [
             {
-                "name": "Jim Jagielski",
-                "email": "jimjag@gmail.com"
-            },
-            {
                 "name": "Marcus Bointon",
                 "email": "phpmailer@synchromedia.co.uk"
+            },
+            {
+                "name": "Jim Jagielski",
+                "email": "jimjag@gmail.com"
             },
             {
                 "name": "Andy Prevost",
@@ -615,17 +615,17 @@
     },
     {
         "name": "symfony/http-foundation",
-        "version": "v2.8.50",
-        "version_normalized": "2.8.50.0",
+        "version": "v2.8.52",
+        "version_normalized": "2.8.52.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/http-foundation.git",
-            "reference": "746f8d3638bf46ee8b202e62f2b214c3d61fb06a"
+            "reference": "3929d9fe8148d17819ad0178c748b8d339420709"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/746f8d3638bf46ee8b202e62f2b214c3d61fb06a",
-            "reference": "746f8d3638bf46ee8b202e62f2b214c3d61fb06a",
+            "url": "https://api.github.com/repos/symfony/http-foundation/zipball/3929d9fe8148d17819ad0178c748b8d339420709",
+            "reference": "3929d9fe8148d17819ad0178c748b8d339420709",
             "shasum": ""
         },
         "require": {
@@ -637,7 +637,7 @@
         "require-dev": {
             "symfony/expression-language": "~2.4|~3.0.0"
         },
-        "time": "2019-04-16T10:00:53+00:00",
+        "time": "2019-11-12T12:34:41+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -672,30 +672,34 @@
     },
     {
         "name": "symfony/polyfill-ctype",
-        "version": "v1.12.0",
-        "version_normalized": "1.12.0.0",
+        "version": "v1.22.1",
+        "version_normalized": "1.22.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-ctype.git",
-            "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
+            "reference": "c6c942b1ac76c82448322025e084cadc56048b4e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
-            "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
+            "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/c6c942b1ac76c82448322025e084cadc56048b4e",
+            "reference": "c6c942b1ac76c82448322025e084cadc56048b4e",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.3"
+            "php": ">=7.1"
         },
         "suggest": {
             "ext-ctype": "For best performance"
         },
-        "time": "2019-08-06T08:03:45+00:00",
+        "time": "2021-01-07T16:49:33+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.12-dev"
+                "dev-main": "1.22-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
             }
         },
         "installation-source": "dist",
