@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'f736c09c16f546e0beb9f9a8389c146d3461106a',
+    'reference' => 'a3b35b2a1c13e6ba34aaa33028408381195e1912',
     'name' => 'wikimedia/smash-pig',
   ),
   'versions' => 
@@ -31,12 +31,12 @@
     ),
     'coderkungfu/php-queue' => 
     array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a9baeb0ae3b05bbd0d2f9f56c8365ff63f64524a',
+      'reference' => 'cd29afd03a5b4b740ce6c50128f1e69723c54f72',
     ),
     'corneltek/getoptionkit' => 
     array (
@@ -47,41 +47,32 @@
       ),
       'reference' => '995607ddf4fc90ebdb4a7d58fe972d581ad8495f',
     ),
-    'ircmaxell/password-compat' => 
-    array (
-      'pretty_version' => 'v1.0.4',
-      'version' => '1.0.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '5c5cde8822a69545767f7c7f3058cb15ff84614c',
-    ),
     'monolog/monolog' => 
     array (
-      'pretty_version' => '1.25.1',
-      'version' => '1.25.1.0',
+      'pretty_version' => '2.2.0',
+      'version' => '2.2.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '70e65a5470a42cfec1a7da00d30edb6e617e8dcf',
+      'reference' => '1cb1cde8e8dd0f70cc0fe51354a59acad9302084',
     ),
     'phpmailer/phpmailer' => 
     array (
-      'pretty_version' => 'v6.4.1',
-      'version' => '6.4.1.0',
+      'pretty_version' => 'v6.5.0',
+      'version' => '6.5.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9256f12d8fb0cd0500f93b19e18c356906cbed3d',
+      'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
     ),
     'predis/predis' => 
     array (
-      'pretty_version' => 'v1.1.1',
-      'version' => '1.1.1.0',
+      'pretty_version' => 'v1.1.7',
+      'version' => '1.1.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f0210e38881631afeafb56ab43405a92cafd9fd1',
+      'reference' => 'b240daa106d4e02f0c5b7079b41e31ddf66fddf8',
     ),
     'psr/cache' => 
     array (
@@ -94,12 +85,12 @@
     ),
     'psr/log' => 
     array (
-      'pretty_version' => '1.1.0',
-      'version' => '1.1.0.0',
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd',
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
     ),
     'psr/log-implementation' => 
     array (
@@ -110,8 +101,8 @@
     ),
     'symfony/event-dispatcher' => 
     array (
-      'pretty_version' => 'v2.8.50',
-      'version' => '2.8.50.0',
+      'pretty_version' => 'v2.8.52',
+      'version' => '2.8.52.0',
       'aliases' => 
       array (
       ),
@@ -128,48 +119,48 @@
     ),
     'symfony/polyfill-ctype' => 
     array (
-      'pretty_version' => 'v1.22.1',
-      'version' => '1.22.1.0',
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c6c942b1ac76c82448322025e084cadc56048b4e',
+      'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
     ),
     'symfony/polyfill-mbstring' => 
     array (
-      'pretty_version' => 'v1.12.0',
-      'version' => '1.12.0.0',
+      'pretty_version' => 'v1.23.0',
+      'version' => '1.23.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b42a2f66e8f1b15ccf25652c3424265923eb4f17',
+      'reference' => '2df51500adbaebdc4c38dea4c89a2e131c45c8a1',
     ),
     'symfony/polyfill-php54' => 
     array (
-      'pretty_version' => 'v1.12.0',
-      'version' => '1.12.0.0',
+      'pretty_version' => 'v1.20.0',
+      'version' => '1.20.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a043bcced870214922fbb4bf22679d431ec0296a',
+      'reference' => '37285b1d5d13f37c8bee546d8d2ad0353460c4c7',
     ),
     'symfony/polyfill-php55' => 
     array (
-      'pretty_version' => 'v1.12.0',
-      'version' => '1.12.0.0',
+      'pretty_version' => 'v1.20.0',
+      'version' => '1.20.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '548bb39407e78e54f785b4e18c7e0d5d9e493265',
+      'reference' => 'c17452124a883900e1d73961f9075a638399c1a0',
     ),
     'symfony/yaml' => 
     array (
-      'pretty_version' => 'v3.4.31',
-      'version' => '3.4.31.0',
+      'pretty_version' => 'v3.4.47',
+      'version' => '3.4.47.0',
       'aliases' => 
       array (
       ),
-      'reference' => '3dc414b7db30695bae671a1d86013d03f4ae9834',
+      'reference' => '88289caa3c166321883f67fe5130188ebbb47094',
     ),
     'wikimedia/smash-pig' => 
     array (
@@ -178,7 +169,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'f736c09c16f546e0beb9f9a8389c146d3461106a',
+      'reference' => 'a3b35b2a1c13e6ba34aaa33028408381195e1912',
     ),
   ),
 );

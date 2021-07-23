@@ -89,22 +89,22 @@
         },
         {
             "name": "coderkungfu/php-queue",
-            "version": "1.0.0",
-            "version_normalized": "1.0.0.0",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CoderKungfu/php-queue.git",
-                "reference": "a9baeb0ae3b05bbd0d2f9f56c8365ff63f64524a"
+                "reference": "cd29afd03a5b4b740ce6c50128f1e69723c54f72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CoderKungfu/php-queue/zipball/a9baeb0ae3b05bbd0d2f9f56c8365ff63f64524a",
-                "reference": "a9baeb0ae3b05bbd0d2f9f56c8365ff63f64524a",
+                "url": "https://api.github.com/repos/CoderKungfu/php-queue/zipball/cd29afd03a5b4b740ce6c50128f1e69723c54f72",
+                "reference": "cd29afd03a5b4b740ce6c50128f1e69723c54f72",
                 "shasum": ""
             },
             "require": {
                 "clio/clio": "0.1.*",
-                "monolog/monolog": "~1.3",
+                "monolog/monolog": "~1.3||~2",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -128,7 +128,7 @@
                 "pecl-mongodb": "For MongoDB backend support",
                 "predis/predis": "For Redis backend support"
             },
-            "time": "2017-09-08T03:14:59+00:00",
+            "time": "2021-04-09T13:40:23+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -157,6 +157,10 @@
                 "queue",
                 "transaction"
             ],
+            "support": {
+                "issues": "https://github.com/CoderKungfu/php-queue/issues",
+                "source": "https://github.com/CoderKungfu/php-queue/tree/1.0.1"
+            },
             "install-path": "../coderkungfu/php-queue"
         },
         {
@@ -205,68 +209,23 @@
             "install-path": "../corneltek/getoptionkit"
         },
         {
-            "name": "ircmaxell/password-compat",
-            "version": "v1.0.4",
-            "version_normalized": "1.0.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ircmaxell/password_compat.git",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ircmaxell/password_compat/zipball/5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "reference": "5c5cde8822a69545767f7c7f3058cb15ff84614c",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*"
-            },
-            "time": "2014-11-20T16:49:30+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "files": [
-                    "lib/password.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthony Ferrara",
-                    "email": "ircmaxell@php.net",
-                    "homepage": "http://blog.ircmaxell.com"
-                }
-            ],
-            "description": "A compatibility library for the proposed simplified password hashing algorithm: https://wiki.php.net/rfc/password_hash",
-            "homepage": "https://github.com/ircmaxell/password_compat",
-            "keywords": [
-                "hashing",
-                "password"
-            ],
-            "install-path": "../ircmaxell/password-compat"
-        },
-        {
             "name": "monolog/monolog",
-            "version": "1.25.1",
-            "version_normalized": "1.25.1.0",
+            "version": "2.2.0",
+            "version_normalized": "2.2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf"
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
-                "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0"
+                "php": ">=7.2",
+                "psr/log": "^1.0.1"
             },
             "provide": {
                 "psr/log-implementation": "1.0.0"
@@ -274,34 +233,38 @@
             "require-dev": {
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
-                "graylog2/gelf-php": "~1.0",
-                "jakub-onderka/php-parallel-lint": "0.9",
+                "elasticsearch/elasticsearch": "^7",
+                "graylog2/gelf-php": "^1.4.2",
+                "mongodb/mongodb": "^1.8",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
-                "phpunit/phpunit": "~4.5",
-                "phpunit/phpunit-mock-objects": "2.3.0",
-                "ruflin/elastica": ">=0.90 <3.0",
-                "sentry/sentry": "^0.13",
+                "phpspec/prophecy": "^1.6.1",
+                "phpstan/phpstan": "^0.12.59",
+                "phpunit/phpunit": "^8.5",
+                "predis/predis": "^1.1",
+                "rollbar/rollbar": "^1.3",
+                "ruflin/elastica": ">=0.90 <7.0.1",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "ext-mbstring": "Allow to work properly with unicode symbols",
+                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
                 "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-                "sentry/sentry": "Allow sending log messages to a Sentry server"
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
-            "time": "2019-09-06T13:49:17+00:00",
+            "time": "2020-12-14T13:15:25+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-main": "2.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -318,31 +281,45 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "http://github.com/Seldaek/monolog",
+            "homepage": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
                 "logging",
                 "psr-3"
             ],
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
             "install-path": "../monolog/monolog"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.4.1",
-            "version_normalized": "6.4.1.0",
+            "version": "v6.5.0",
+            "version_normalized": "6.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "9256f12d8fb0cd0500f93b19e18c356906cbed3d"
+                "reference": "a5b5c43e50b7fba655f793ad27303cd74c57363c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/9256f12d8fb0cd0500f93b19e18c356906cbed3d",
-                "reference": "9256f12d8fb0cd0500f93b19e18c356906cbed3d",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/a5b5c43e50b7fba655f793ad27303cd74c57363c",
+                "reference": "a5b5c43e50b7fba655f793ad27303cd74c57363c",
                 "shasum": ""
             },
             "require": {
@@ -367,7 +344,7 @@
                 "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
                 "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
             },
-            "time": "2021-04-29T12:25:04+00:00",
+            "time": "2021-06-16T14:33:43+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -399,7 +376,7 @@
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "support": {
                 "issues": "https://github.com/PHPMailer/PHPMailer/issues",
-                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.4.1"
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.5.0"
             },
             "funding": [
                 {
@@ -411,17 +388,17 @@
         },
         {
             "name": "predis/predis",
-            "version": "v1.1.1",
-            "version_normalized": "1.1.1.0",
+            "version": "v1.1.7",
+            "version_normalized": "1.1.7.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nrk/predis.git",
-                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+                "url": "https://github.com/predis/predis.git",
+                "reference": "b240daa106d4e02f0c5b7079b41e31ddf66fddf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
-                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "url": "https://api.github.com/repos/predis/predis/zipball/b240daa106d4e02f0c5b7079b41e31ddf66fddf8",
+                "reference": "b240daa106d4e02f0c5b7079b41e31ddf66fddf8",
                 "shasum": ""
             },
             "require": {
@@ -434,7 +411,7 @@
                 "ext-curl": "Allows access to Webdis when paired with phpiredis",
                 "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
             },
-            "time": "2016-06-16T16:22:20+00:00",
+            "time": "2021-04-04T19:34:46+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -450,15 +427,31 @@
                 {
                     "name": "Daniele Alessandri",
                     "email": "suppakilla@gmail.com",
-                    "homepage": "http://clorophilla.net"
+                    "homepage": "http://clorophilla.net",
+                    "role": "Creator & Maintainer"
+                },
+                {
+                    "name": "Till Krüss",
+                    "homepage": "https://till.im",
+                    "role": "Maintainer"
                 }
             ],
             "description": "Flexible and feature-complete Redis client for PHP and HHVM",
-            "homepage": "http://github.com/nrk/predis",
+            "homepage": "http://github.com/predis/predis",
             "keywords": [
                 "nosql",
                 "predis",
                 "redis"
+            ],
+            "support": {
+                "issues": "https://github.com/predis/predis/issues",
+                "source": "https://github.com/predis/predis/tree/v1.1.7"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/tillkruss",
+                    "type": "github"
+                }
             ],
             "install-path": "../predis/predis"
         },
@@ -513,27 +506,27 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
-            "version_normalized": "1.1.0.0",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2018-11-20T15:27:04+00:00",
+            "time": "2021-05-03T11:20:27+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -549,7 +542,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for logging libraries",
@@ -559,12 +552,15 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
             "install-path": "../psr/log"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.50",
-            "version_normalized": "2.8.50.0",
+            "version": "v2.8.52",
+            "version_normalized": "2.8.52.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -622,6 +618,9 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/event-dispatcher/tree/v2.8.50"
+            },
             "install-path": "../symfony/event-dispatcher"
         },
         {
@@ -684,17 +683,17 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.1",
-            "version_normalized": "1.22.1.0",
+            "version": "v1.23.0",
+            "version_normalized": "1.23.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e"
+                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/c6c942b1ac76c82448322025e084cadc56048b4e",
-                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/46cd95797e9df938fdd2b03693b5fca5e64b01ce",
+                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce",
                 "shasum": ""
             },
             "require": {
@@ -703,11 +702,11 @@
             "suggest": {
                 "ext-ctype": "For best performance"
             },
-            "time": "2021-01-07T16:49:33+00:00",
+            "time": "2021-02-19T12:13:01+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.22-dev"
+                    "dev-main": "1.23-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -745,34 +744,55 @@
                 "polyfill",
                 "portable"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "install-path": "../symfony/polyfill-ctype"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.12.0",
-            "version_normalized": "1.12.0.0",
+            "version": "v1.23.0",
+            "version_normalized": "1.23.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
+                "reference": "2df51500adbaebdc4c38dea4c89a2e131c45c8a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2df51500adbaebdc4c38dea4c89a2e131c45c8a1",
+                "reference": "2df51500adbaebdc4c38dea4c89a2e131c45c8a1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
-            "time": "2019-08-06T08:03:45+00:00",
+            "time": "2021-05-27T09:27:20+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "installation-source": "dist",
@@ -807,44 +827,53 @@
                 "portable",
                 "shim"
             ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "install-path": "../symfony/polyfill-mbstring"
         },
         {
             "name": "symfony/polyfill-php54",
-            "version": "v1.12.0",
-            "version_normalized": "1.12.0.0",
+            "version": "v1.20.0",
+            "version_normalized": "1.20.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php54.git",
-                "reference": "a043bcced870214922fbb4bf22679d431ec0296a"
+                "reference": "37285b1d5d13f37c8bee546d8d2ad0353460c4c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/a043bcced870214922fbb4bf22679d431ec0296a",
-                "reference": "a043bcced870214922fbb4bf22679d431ec0296a",
+                "url": "https://api.github.com/repos/symfony/polyfill-php54/zipball/37285b1d5d13f37c8bee546d8d2ad0353460c4c7",
+                "reference": "37285b1d5d13f37c8bee546d8d2ad0353460c4c7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
             },
-            "time": "2019-08-06T08:03:45+00:00",
-            "type": "library",
+            "time": "2020-10-23T14:02:19+00:00",
+            "type": "metapackage",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php54\\": ""
+                    "dev-main": "1.20-dev"
                 },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -868,42 +897,53 @@
                 "portable",
                 "shim"
             ],
-            "install-path": "../symfony/polyfill-php54"
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php54/tree/v1.20.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": null
         },
         {
             "name": "symfony/polyfill-php55",
-            "version": "v1.12.0",
-            "version_normalized": "1.12.0.0",
+            "version": "v1.20.0",
+            "version_normalized": "1.20.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php55.git",
-                "reference": "548bb39407e78e54f785b4e18c7e0d5d9e493265"
+                "reference": "c17452124a883900e1d73961f9075a638399c1a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/548bb39407e78e54f785b4e18c7e0d5d9e493265",
-                "reference": "548bb39407e78e54f785b4e18c7e0d5d9e493265",
+                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/c17452124a883900e1d73961f9075a638399c1a0",
+                "reference": "c17452124a883900e1d73961f9075a638399c1a0",
                 "shasum": ""
             },
             "require": {
-                "ircmaxell/password-compat": "~1.0",
-                "php": ">=5.3.3"
+                "php": ">=7.1"
             },
-            "time": "2019-08-06T08:03:45+00:00",
-            "type": "library",
+            "time": "2020-10-23T14:02:19+00:00",
+            "type": "metapackage",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php55\\": ""
+                    "dev-main": "1.20-dev"
                 },
-                "files": [
-                    "bootstrap.php"
-                ]
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -927,21 +967,38 @@
                 "portable",
                 "shim"
             ],
-            "install-path": "../symfony/polyfill-php55"
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php55/tree/v1.20.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": null
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.31",
-            "version_normalized": "3.4.31.0",
+            "version": "v3.4.47",
+            "version_normalized": "3.4.47.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "3dc414b7db30695bae671a1d86013d03f4ae9834"
+                "reference": "88289caa3c166321883f67fe5130188ebbb47094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/3dc414b7db30695bae671a1d86013d03f4ae9834",
-                "reference": "3dc414b7db30695bae671a1d86013d03f4ae9834",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/88289caa3c166321883f67fe5130188ebbb47094",
+                "reference": "88289caa3c166321883f67fe5130188ebbb47094",
                 "shasum": ""
             },
             "require": {
@@ -957,13 +1014,8 @@
             "suggest": {
                 "symfony/console": "For validating YAML files using the lint command"
             },
-            "time": "2019-08-20T13:31:17+00:00",
+            "time": "2020-10-24T10:57:07+00:00",
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
@@ -989,6 +1041,23 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v3.4.47"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "install-path": "../symfony/yaml"
         }
     ],
