@@ -9,12 +9,8 @@
  * file that was distributed with this source code.
  */
 
-if (\PHP_VERSION_ID < 80000) {
-    interface Stringable
+if (\PHP_VERSION_ID < 80300) {
+    class DateError extends Error
     {
-        /**
-         * @return string
-         */
-        public function __toString();
     }
 }
