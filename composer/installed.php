@@ -3,7 +3,7 @@
         'name' => 'wikimedia/smash-pig',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '5169c772f257116c632591ffdccb1455075fc6fb',
+        'reference' => '8486f9fb8426f50528e9dc453a5116856149e39b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -47,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'gr4vy/gr4vy-php' => array(
-            'pretty_version' => 'v0.26.0',
-            'version' => '0.26.0.0',
-            'reference' => '2c85b6d8b44e1afb4a21b16f5f414fe659e1dcb8',
+            'pretty_version' => 'v0.27.0',
+            'version' => '0.27.0.0',
+            'reference' => 'e0e3da9b4d20e0dac1cc8448fb60fce858bc0fa7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../gr4vy/gr4vy-php',
             'aliases' => array(),
@@ -150,6 +150,15 @@
             'provided' => array(
                 0 => '1.0',
             ),
+        ),
+        'psr/container' => array(
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
+            'reference' => 'c71ecc56dfe541dbd90c5360474fbc405f8d5963',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/container',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'psr/http-client' => array(
             'pretty_version' => '1.0.3',
@@ -277,7 +286,7 @@
         'wikimedia/smash-pig' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '5169c772f257116c632591ffdccb1455075fc6fb',
+            'reference' => '8486f9fb8426f50528e9dc453a5116856149e39b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

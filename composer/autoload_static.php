@@ -30,6 +30,7 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
+            'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
             'Psr\\Cache\\' => 10,
             'Predis\\' => 7,
@@ -92,6 +93,10 @@ class ComposerStaticInit442d5bd04c536bc08fb965344071e9ce
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Psr\\Clock\\' => 
         array (
